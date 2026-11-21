@@ -61,6 +61,10 @@ nfpms:
   - file_name_template: '{{ .PackageName }}_{{ .Os }}_{{ .Arch }}'
     id: geteduroam-cli
     package_name: geteduroam-cli
+    # Both variants ship the same notification binary and systemd units.
+    # They must not be installed simultaneously (dpkg file ownership conflict).
+    conflicts:
+      - geteduroam-gui
     maintainer: Jeroen Wijenbergh
     homepage: https://geteduroam.org/
     ids:
@@ -90,6 +94,10 @@ nfpms:
   - file_name_template: '{{ .PackageName }}_{{ .Os }}_{{ .Arch }}'
     id: geteduroam-gui
     package_name: geteduroam-gui
+    # Both variants ship the same notification binary and systemd units.
+    # They must not be installed simultaneously (dpkg file ownership conflict).
+    conflicts:
+      - geteduroam-cli
     maintainer: Jeroen Wijenbergh
     homepage: https://geteduroam.org/
     ids:
@@ -128,6 +136,10 @@ nfpms:
   - file_name_template: '{{ .PackageName }}_{{ .Os }}_{{ .Arch }}'
     id: getgovroam-cli
     package_name: getgovroam-cli
+    # Both variants ship the same notification binary and systemd units.
+    # They must not be installed simultaneously (dpkg file ownership conflict).
+    conflicts:
+      - getgovroam-gui
     maintainer: Jeroen Wijenbergh
     homepage: https://getgovroam.org/
     ids:
@@ -157,6 +169,10 @@ nfpms:
   - file_name_template: '{{ .PackageName }}_{{ .Os }}_{{ .Arch }}'
     id: getgovroam-gui
     package_name: getgovroam-gui
+    # Both variants ship the same notification binary and systemd units.
+    # They must not be installed simultaneously (dpkg file ownership conflict).
+    conflicts:
+      - getgovroam-cli
     maintainer: Jeroen Wijenbergh
     homepage: https://getgovroam.org/
     ids:
